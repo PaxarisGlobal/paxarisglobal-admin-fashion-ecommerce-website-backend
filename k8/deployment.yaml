@@ -17,7 +17,7 @@ spec:
     spec:
       initContainers:
         - name: wait-for-postgres
-          image: devopspaxarisglobalrepo/paxarisglobal-admin-fashion-ecommerce-website-backend:2533805a14affe77c1abd4a95116976b1e99b37a
+          image: postgres:16-alpine
           command:
             - sh
             - -c
@@ -26,7 +26,7 @@ spec:
         - name: dockerhub-secret
       containers:
         - name: paxarisglobal-admin-fashion-ecommerce-website-backend
-          image: devopspaxarisglobalrepo/paxarisglobal-admin-fashion-ecommerce-website-backend:2533805a14affe77c1abd4a95116976b1e99b37a
+          image: "devopspaxarisglobalrepo/paxarisglobal-admin-fashion-ecommerce-website-backend:latest"
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
@@ -50,5 +50,5 @@ spec:
   ports:
     - port: 8080
       targetPort: 8080
-      nodePort: 32416
+      nodePort: 32400
   type: NodePort
